@@ -1,3 +1,5 @@
+USE ac_db;
+
 CREATE TABLE Customer (
     CustomerID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(255),

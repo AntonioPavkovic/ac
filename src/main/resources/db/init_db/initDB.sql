@@ -1,1 +1,1 @@
-CREATE DATABASE IF NOT EXISTS ac_db DEFAULT CHARACTER SET utf8 collate utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS ac_db DEFAULT CHARACTER SET utf8 collate utf8mb4_general_ci;

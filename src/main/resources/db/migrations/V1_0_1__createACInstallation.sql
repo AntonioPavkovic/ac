@@ -1,3 +1,5 @@
+USE ac_db;
+
 CREATE TABLE ACInstallation (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     InstallationDate DATE,
