@@ -1,6 +1,6 @@
 USE ac_db;
 
-CREATE TABLE PaymentPlans (
+CREATE TABLE PaymentPlan (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     InstallationID INT,
     TotalAmount DECIMAL(10, 2),
@@ -11,7 +11,7 @@ CREATE TABLE PaymentPlans (
     FOREIGN KEY (InstallationID) REFERENCES ACInstallation(ID)
 );
 
-INSERT INTO `PaymentPlans` (`ID`, `InstallationID`, `TotalAmount`, `NumberOfInstallments`, `RemainingAmount`, `InstallmentAmount`, `DueDate`) VALUES
+INSERT INTO `PaymentPlan` (`ID`, `InstallationID`, `TotalAmount`, `NumberOfInstallments`, `RemainingAmount`, `InstallmentAmount`, `DueDate`) VALUES
 (1, 1, '800.00', 1, '0.00', '800.00', '2023-02-01'),
 (2, 2, '800.00', 2, '600.00', '400.00', '2023-02-01'),
 (3, 3, '950.00', 1, '0.00', '950.00', '2023-03-01'),

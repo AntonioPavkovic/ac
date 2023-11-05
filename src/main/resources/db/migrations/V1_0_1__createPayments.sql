@@ -1,6 +1,6 @@
 USE ac_db;
 
-CREATE TABLE Payments (
+CREATE TABLE Payment (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     InstallationID INT,
     PaymentDate DATE,
@@ -11,7 +11,7 @@ CREATE TABLE Payments (
     FOREIGN KEY (InstallationID) REFERENCES ACInstallation(ID)
 );
 
-INSERT INTO Payments (InstallationID, PaymentDate, Amount, Currency, PaymentMethod, InstallmentNumber)
+INSERT INTO Payment (InstallationID, PaymentDate, Amount, Currency, PaymentMethod, InstallmentNumber)
 VALUES
     (1, '2023-01-15', 200.00, 'EUR', 'Card', 1),
     (2, '2023-02-20', 150.00, 'BAM', 'Cash', 3),

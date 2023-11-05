@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Nov 04, 2023 at 10:11 AM
+-- Generation Time: Nov 05, 2023 at 02:21 PM
 -- Server version: 10.11.5-MariaDB-1:10.11.5+maria~ubu2204
 -- PHP Version: 8.0.19
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ac_db`
 --
-
 
 -- --------------------------------------------------------
 
@@ -76,10 +75,10 @@ INSERT INTO `ACInstallation` (`ID`, `InstallationDate`, `Address`, `Room`, `ACMo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ACServices`
+-- Table structure for table `ACServicing`
 --
 
-CREATE TABLE `ACServices` (
+CREATE TABLE `ACServicing` (
   `ID` int(11) NOT NULL,
   `InstallationID` int(11) DEFAULT NULL,
   `ServiceDate` date DEFAULT NULL,
@@ -87,10 +86,10 @@ CREATE TABLE `ACServices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ACServices`
+-- Dumping data for table `ACServicing`
 --
 
-INSERT INTO `ACServices` (`ID`, `InstallationID`, `ServiceDate`, `ServiceDescription`) VALUES
+INSERT INTO `ACServicing` (`ID`, `InstallationID`, `ServiceDate`, `ServiceDescription`) VALUES
 (1, 1, '2023-01-16', 'Regular maintenance'),
 (2, 2, '2023-02-21', 'Filter replacement'),
 (3, 3, '2023-03-11', 'Coolant refill'),
@@ -280,7 +279,7 @@ INSERT INTO `MaterialUsedInInstallation` (`ID`, `InstallationID`, `CopperPipe1Di
 -- Table structure for table `PaymentPlans`
 --
 
-CREATE TABLE `PaymentPlans` (
+CREATE TABLE `PaymentPlan` (
   `ID` int(11) NOT NULL,
   `InstallationID` int(11) DEFAULT NULL,
   `TotalAmount` decimal(10,2) DEFAULT NULL,
@@ -294,7 +293,7 @@ CREATE TABLE `PaymentPlans` (
 -- Dumping data for table `PaymentPlans`
 --
 
-INSERT INTO `PaymentPlans` (`ID`, `InstallationID`, `TotalAmount`, `NumberOfInstallments`, `RemainingAmount`, `InstallmentAmount`, `DueDate`) VALUES
+INSERT INTO `PaymentPlan` (`ID`, `InstallationID`, `TotalAmount`, `NumberOfInstallments`, `RemainingAmount`, `InstallmentAmount`, `DueDate`) VALUES
 (1, 1, '800.00', 1, '0.00', '800.00', '2023-02-01'),
 (2, 2, '800.00', 2, '600.00', '400.00', '2023-02-01'),
 (3, 3, '950.00', 1, '0.00', '950.00', '2023-03-01'),
@@ -332,7 +331,7 @@ INSERT INTO `PaymentPlans` (`ID`, `InstallationID`, `TotalAmount`, `NumberOfInst
 -- Table structure for table `Payments`
 --
 
-CREATE TABLE `Payments` (
+CREATE TABLE `Payment` (
   `ID` int(11) NOT NULL,
   `InstallationID` int(11) DEFAULT NULL,
   `PaymentDate` date DEFAULT NULL,
@@ -346,7 +345,7 @@ CREATE TABLE `Payments` (
 -- Dumping data for table `Payments`
 --
 
-INSERT INTO `Payments` (`ID`, `InstallationID`, `PaymentDate`, `Amount`, `Currency`, `PaymentMethod`, `InstallmentNumber`) VALUES
+INSERT INTO `Payment` (`ID`, `InstallationID`, `PaymentDate`, `Amount`, `Currency`, `PaymentMethod`, `InstallmentNumber`) VALUES
 (1, 1, '2023-01-15', '200.00', 'EUR', 'Card', 1),
 (2, 2, '2023-02-20', '150.00', 'BAM', 'Cash', 3),
 (3, 3, '2023-03-10', '200.00', 'EUR', 'Card', 2),
@@ -439,9 +438,9 @@ ALTER TABLE `ACInstallation`
   ADD KEY `CustomerID` (`CustomerID`);
 
 --
--- Indexes for table `ACServices`
+-- Indexes for table `ACServicing`
 --
-ALTER TABLE `ACServices`
+ALTER TABLE `ACServicing`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `InstallationID` (`InstallationID`);
 
@@ -468,14 +467,14 @@ ALTER TABLE `MaterialUsedInInstallation`
 --
 -- Indexes for table `PaymentPlans`
 --
-ALTER TABLE `PaymentPlans`
+ALTER TABLE `PaymentPlan`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `InstallationID` (`InstallationID`);
 
 --
 -- Indexes for table `Payments`
 --
-ALTER TABLE `Payments`
+ALTER TABLE `Payment`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `InstallationID` (`InstallationID`);
 
@@ -497,9 +496,9 @@ ALTER TABLE `ACInstallation`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `ACServices`
+-- AUTO_INCREMENT for table `ACServicing`
 --
-ALTER TABLE `ACServices`
+ALTER TABLE `ACServicing`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
@@ -523,13 +522,13 @@ ALTER TABLE `MaterialUsedInInstallation`
 --
 -- AUTO_INCREMENT for table `PaymentPlans`
 --
-ALTER TABLE `PaymentPlans`
+ALTER TABLE `PaymentPlan`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `Payments`
 --
-ALTER TABLE `Payments`
+ALTER TABLE `Payment`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
@@ -549,10 +548,10 @@ ALTER TABLE `ACInstallation`
   ADD CONSTRAINT `ACInstallation_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `Customer` (`CustomerID`);
 
 --
--- Constraints for table `ACServices`
+-- Constraints for table `ACServicing`
 --
-ALTER TABLE `ACServices`
-  ADD CONSTRAINT `ACServices_ibfk_1` FOREIGN KEY (`InstallationID`) REFERENCES `ACInstallation` (`ID`);
+ALTER TABLE `ACServicing`
+  ADD CONSTRAINT `ACServicing_ibfk_1` FOREIGN KEY (`InstallationID`) REFERENCES `ACInstallation` (`ID`);
 
 --
 -- Constraints for table `ACUninstallation`
@@ -569,13 +568,13 @@ ALTER TABLE `MaterialUsedInInstallation`
 --
 -- Constraints for table `PaymentPlans`
 --
-ALTER TABLE `PaymentPlans`
+ALTER TABLE `PaymentPlan`
   ADD CONSTRAINT `PaymentPlans_ibfk_1` FOREIGN KEY (`InstallationID`) REFERENCES `ACInstallation` (`ID`);
 
 --
 -- Constraints for table `Payments`
 --
-ALTER TABLE `Payments`
+ALTER TABLE `Payment`
   ADD CONSTRAINT `Payments_ibfk_1` FOREIGN KEY (`InstallationID`) REFERENCES `ACInstallation` (`ID`);
 
 --

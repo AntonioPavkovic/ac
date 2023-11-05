@@ -1,6 +1,6 @@
 USE ac_db;
 
-CREATE TABLE ACServices (
+CREATE TABLE ACServicing (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     InstallationID INT,
     ServiceDate DATE,
@@ -8,7 +8,7 @@ CREATE TABLE ACServices (
     FOREIGN KEY (InstallationID) REFERENCES ACInstallation(ID)
 );
 
-INSERT INTO ACServices (InstallationID, ServiceDate, ServiceDescription)
+INSERT INTO ACServicing (InstallationID, ServiceDate, ServiceDescription)
 VALUES
     (1, '2023-01-16', 'Regular maintenance'),
     (2, '2023-02-21', 'Filter replacement'),
