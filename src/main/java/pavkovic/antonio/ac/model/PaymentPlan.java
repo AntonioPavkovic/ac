@@ -1,8 +1,6 @@
 package pavkovic.antonio.ac.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +16,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PaymentPlan {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal totalAmount;
     private BigDecimal remainingAmount;
