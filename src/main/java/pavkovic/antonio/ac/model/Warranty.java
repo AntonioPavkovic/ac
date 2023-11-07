@@ -18,7 +18,6 @@ public class Warranty{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private LocalDate warrantyStartDate;
     private LocalDate warrantyEndDate;
 

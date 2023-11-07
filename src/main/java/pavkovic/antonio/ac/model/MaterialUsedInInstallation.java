@@ -18,13 +18,13 @@ public class MaterialUsedInInstallation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal copperPipe1Diameter;
-    private BigDecimal copperPipe2Diameter;
-    private Integer copperPipe1Length;
-    private Integer copperPipe2Length;
-    private Integer communicationCableLength;
-    private Integer powerSupplyCableLength;
-    private Integer waterDrainHoseLength;
+    private double copperPipe1Diameter;
+    private double copperPipe2Diameter;
+    private int copperPipe1Length;
+    private int copperPipe2Length;
+    private int communicationCableLength;
+    private int powerSupplyCableLength;
+    private int waterDrainHoseLength;
 
     @OneToOne
     @JoinColumn(name = "installation_id")

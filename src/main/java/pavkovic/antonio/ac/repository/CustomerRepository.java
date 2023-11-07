@@ -1,4 +1,7 @@
 package pavkovic.antonio.ac.repository;
 
-public interface CustomerRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import pavkovic.antonio.ac.model.Customer;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

@@ -23,7 +23,7 @@ public class Payment {
     private BigDecimal amount;
     private String currency;
     private String paymentMethod;
-    private Integer installmentNumber;
+    private int installmentNumber;
 
     @ManyToOne
     @JoinColumn(name = "installation_id")

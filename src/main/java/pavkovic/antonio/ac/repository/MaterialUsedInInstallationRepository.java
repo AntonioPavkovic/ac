@@ -1,4 +1,9 @@
 package pavkovic.antonio.ac.repository;
 
-public interface MaterialUsedInInstallationRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import pavkovic.antonio.ac.model.MaterialUsedInInstallation;
+
+@Repository
+public interface MaterialUsedInInstallationRepository extends JpaRepository<MaterialUsedInInstallation, Long> {
 }

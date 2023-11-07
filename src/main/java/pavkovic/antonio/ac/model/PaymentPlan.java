@@ -21,9 +21,9 @@ public class PaymentPlan {
     private Long id;
     private BigDecimal totalAmount;
     private BigDecimal remainingAmount;
-    private BigDecimal installmentAmount;
+    private int installmentAmount;
     private LocalDate dueDate;
-    private Integer numberOfInstallments;
+    private int numberOfInstallments;
 
     @ManyToOne
     @JoinColumn(name = "installation_id")
