@@ -21,7 +21,7 @@ public class Warranty{
     private LocalDate warrantyStartDate;
     private LocalDate warrantyEndDate;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "installation_id")
     private ACInstallation installation;
 }

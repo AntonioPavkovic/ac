@@ -17,6 +17,6 @@ public class ACInstallationDTO {
 
     private String model;
 
-    private String customerId;
+    private Long customerId;
 
 }

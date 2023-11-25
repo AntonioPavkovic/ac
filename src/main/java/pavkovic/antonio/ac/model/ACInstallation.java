@@ -28,4 +28,6 @@ public class ACInstallation {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL)
+    private Warranty warranty;
 }
