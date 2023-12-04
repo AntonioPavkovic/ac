@@ -36,8 +36,4 @@ public class ACInstallation {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-
-    @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL)
-    @JoinColumn(name = "warranty_id")
-    private Warranty warranty;
 }

@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import pavkovic.antonio.ac.dto.ACInstallationDTO;
 import pavkovic.antonio.ac.exception.InstallationNotFoundException;
 import pavkovic.antonio.ac.model.ACInstallation;
-import pavkovic.antonio.ac.repository.ACInstallationRepository;
 import pavkovic.antonio.ac.service.ACInstallationService;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,10 +18,23 @@ public class ACInstallationController {
 
     private final ACInstallationService acInstallationService;
 
-    private final ACInstallationRepository repository;
     @GetMapping()
-    public void getAllInstallations() {
-        repository.findAll();
+    public ResponseEntity<List<ACInstallation>> getAllInstallations(
+            @RequestParam(defaultValue = "0") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy
+    ) {
+
+        List<ACInstallation> acInstallations = acInstallationService.getAllInstallations(pageNum, pageSize, sortBy);
+
+        return new ResponseEntity<>(acInstallations, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ACInstallation> getInstallationById(@PathVariable("id") Long id) {
+        ACInstallation acInstallation = acInstallationService.getInstallationById(id);
+
+        return new ResponseEntity<>(acInstallation, HttpStatus.OK);
     }
 
     @PostMapping()
@@ -32,14 +44,4 @@ public class ACInstallationController {
         return new ResponseEntity<>(createdInstallation, HttpStatus.CREATED);
     }
 
-    @PostMapping("/{installationId}/warranty")
-    public ResponseEntity<String> claimWarranty(@PathVariable Long installationId) {
-
-        try {
-            acInstallationService.addWarranty(installationId);
-            return ResponseEntity.ok("Warranty added successfully!");
-        } catch (InstallationNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
 }
