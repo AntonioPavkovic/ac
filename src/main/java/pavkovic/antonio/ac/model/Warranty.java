@@ -13,12 +13,18 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "warranty")
 public class Warranty{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "warranty_start_date")
     private LocalDate warrantyStartDate;
+
+    @Column(name = "warranty_end_date")
     private LocalDate warrantyEndDate;
 
     @OneToOne

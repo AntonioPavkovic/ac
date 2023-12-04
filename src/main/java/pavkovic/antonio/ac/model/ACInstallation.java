@@ -13,15 +13,24 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "acinstallation")
+@Table(name = "ac_installation")
 public class ACInstallation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "installation_date")
     private LocalDate installationDate;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "room")
     private String room;
+
+    @Column(name = "model")
     private String model;
 
     @ManyToOne
@@ -29,5 +38,6 @@ public class ACInstallation {
     private Customer customer;
 
     @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL)
+    @JoinColumn(name = "warranty_id")
     private Warranty warranty;
 }

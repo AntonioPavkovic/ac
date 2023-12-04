@@ -13,11 +13,17 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "ac_servicing")
 public class ACServicing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "service_date")
     private LocalDate serviceDate;
+
+    @Column(name = "service_description")
     private String serviceDescription;
 
     @ManyToOne

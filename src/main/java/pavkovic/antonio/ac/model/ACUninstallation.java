@@ -13,11 +13,15 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "ac_uninstallation")
 public class ACUninstallation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "uninstallation_date")
     private LocalDate uninstallationDate;
 
     @OneToOne

@@ -14,15 +14,27 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "payment")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "payment_date")
     private LocalDate paymentDate;
+
+    @Column(name = "amount")
     private BigDecimal amount;
+
+    @Column(name = "Currency")
     private String currency;
+
+    @Column(name = "payment_method")
     private String paymentMethod;
+
+    @Column(name = "installment_number")
     private int installmentNumber;
 
     @ManyToOne
