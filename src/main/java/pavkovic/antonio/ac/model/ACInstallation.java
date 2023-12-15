@@ -1,5 +1,6 @@
 package pavkovic.antonio.ac.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,4 +37,7 @@ public class ACInstallation {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Warranty warranty;
 }

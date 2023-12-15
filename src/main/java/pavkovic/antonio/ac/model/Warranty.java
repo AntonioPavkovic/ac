@@ -1,5 +1,6 @@
 package pavkovic.antonio.ac.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,6 @@ public class Warranty{
     private LocalDate warrantyEndDate;
 
     @OneToOne
-    @JoinColumn(name = "installation_id")
+    @JoinColumn(name = "installation_id", referencedColumnName = "id")
     private ACInstallation installation;
 }

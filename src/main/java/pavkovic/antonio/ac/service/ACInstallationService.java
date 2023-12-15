@@ -1,66 +1,47 @@
 package pavkovic.antonio.ac.service;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import pavkovic.antonio.ac.dto.ACInstallationDTO;
-import pavkovic.antonio.ac.exception.CustomerNotFoundException;
-import pavkovic.antonio.ac.exception.InstallationNotFoundException;
+import pavkovic.antonio.ac.dto.request.ACInstallationRequestDTO;
+import pavkovic.antonio.ac.dto.response.ACInstallationResponseDTO;
+import pavkovic.antonio.ac.exception.ACInstallationNotFoundException;
+import pavkovic.antonio.ac.mapper.ACInstallationMapper;
 import pavkovic.antonio.ac.model.ACInstallation;
-import pavkovic.antonio.ac.model.Customer;
-import pavkovic.antonio.ac.model.Warranty;
 import pavkovic.antonio.ac.repository.ACInstallationRepository;
-import pavkovic.antonio.ac.repository.CustomerRepository;
-import pavkovic.antonio.ac.repository.WarrantyRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class ACInstallationService {
-
     private final ACInstallationRepository acInstallationRepository;
-    private final WarrantyRepository warrantyRepository;
-    private CustomerRepository customerRepository;
+    private final ACInstallationMapper acInstallationMapper;
 
-    public List<ACInstallation> getAllInstallations(Integer pageNum, Integer pageSize, String sortBy) {
-        Pageable paging = PageRequest.of(pageNum, pageSize, Sort.by(sortBy));
-        Page<ACInstallation> pagedResult = acInstallationRepository.findAll(paging);
-
-        if (pagedResult.hasContent()) {
-            return pagedResult.getContent();
-        } else {
-            return new ArrayList<>();
-        }
+    public ACInstallationResponseDTO createACInstallation(ACInstallationRequestDTO requestDTO) {
+        ACInstallation acInstallation = acInstallationMapper.toEntity(requestDTO);
+        ACInstallation savedInstallation = acInstallationRepository.save(acInstallation);
+        return acInstallationMapper.toResponseDTO(savedInstallation);
     }
 
-    public ACInstallation getInstallationById(Long id) throws InstallationNotFoundException {
-        Optional<ACInstallation> acInstallation = acInstallationRepository.findById(id);
+    public List<ACInstallationResponseDTO> getAllACInstallations() {
+        List<ACInstallation> acInstallations = acInstallationRepository.findAll();
 
-        if (acInstallation.isPresent()) {
-            return acInstallation.get();
-        } else {
-            throw new InstallationNotFoundException("Installation with the id: " + id + " was not found!");
-        }
+        return acInstallations.stream()
+                .map(acInstallationMapper::toResponseDTO)
+                .collect(Collectors.toList());
     }
 
-    public ACInstallation createACInstallation(ACInstallationDTO acInstallationDTO) {
-        ACInstallation installation = new ACInstallation();
-        installation.setInstallationDate(acInstallationDTO.getInstallationDate());
-        installation.setAddress(acInstallationDTO.getAddress());
-        installation.setRoom(acInstallationDTO.getRoom());
-        installation.setModel(acInstallationDTO.getModel());
+    public ACInstallationResponseDTO getACInstallationById(Long id) {
+        ACInstallation acInstallation = acInstallationRepository.findById(id)
+                .orElseThrow(() -> new ACInstallationNotFoundException("Installation with the id: "+ id +" was not found!"));
 
-        Customer customer = customerRepository.findById(acInstallationDTO.getCustomerId())
-                .orElseThrow(() -> new CustomerNotFoundException("Customer not found"));
-
-        installation.setCustomer(customer);
-        return acInstallationRepository.save(installation);
+        return acInstallationMapper.toResponseDTO(acInstallation);
     }
-
 }
