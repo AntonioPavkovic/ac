@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "pavkovic.antonio.ac.mapper")
+//@ComponentScan(basePackages = "pavkovic.antonio.ac.mapper")
 public class AcApplication {
 
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package pavkovic.antonio.ac.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +14,25 @@ import pavkovic.antonio.ac.service.ACInstallationService;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/installations")
 public class ACInstallationController {
+
     private final ACInstallationService acInstallationService;
 
-    @GetMapping("/")
-    public ResponseEntity<List<ACInstallationResponseDTO>> getAllACInstallations() {
-        List<ACInstallationResponseDTO> responseDTOs = acInstallationService.getAllACInstallations();
-        return new ResponseEntity<>(responseDTOs, HttpStatus.OK);
+    @Autowired
+    public ACInstallationController(ACInstallationService acInstallationService) {
+        this.acInstallationService = acInstallationService;
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<ACInstallationResponseDTO>> getAllACInstallations(
+            @RequestParam(defaultValue = "0") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy
+    ) {
+
+        List<ACInstallationResponseDTO> acInstallationResponseDTOs = acInstallationService.getAllACInstallations(pageNum, pageSize, sortBy);
+        return new ResponseEntity<>(acInstallationResponseDTOs, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
