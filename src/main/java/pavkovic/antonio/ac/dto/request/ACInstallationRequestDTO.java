@@ -1,8 +1,8 @@
 package pavkovic.antonio.ac.dto.request;
 
 import lombok.Getter;
-import pavkovic.antonio.ac.dto.response.CustomerDTO;
-import pavkovic.antonio.ac.dto.response.MaterialUsedInInstallationDTO;
+import pavkovic.antonio.ac.dto.response.CustomerResponseDTO;
+import pavkovic.antonio.ac.dto.response.MaterialUsedInInstallationResponseDTO;
 
 import java.time.LocalDate;
 
@@ -12,6 +12,6 @@ public class ACInstallationRequestDTO {
     private String address;
     private String room;
     private String model;
-    private CustomerDTO customerDTO;
-    private MaterialUsedInInstallationDTO materialUsedInInstallationDTO;
+    private CustomerResponseDTO customerDTO;
+    private MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO;
 }

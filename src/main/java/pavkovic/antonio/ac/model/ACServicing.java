@@ -26,6 +26,13 @@ public class ACServicing {
     @Column(name = "service_description")
     private String serviceDescription;
 
+
+    /*
+    * TODO
+    * razmisliti o ideji da umjesto vezanja servisiranja klime na montazu nego na kupca
+    * (sto ako nas zovne kupac, kome nismo radili klimu, za servis)
+    * */
+
     @ManyToOne
     @JoinColumn(name = "installation_id")
     private ACInstallation installation;

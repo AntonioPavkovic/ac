@@ -40,4 +40,7 @@ public class ACInstallation {
 
     @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Warranty warranty;
+
+    @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private MaterialUsedInInstallation materialUsedInInstallation;
 }
