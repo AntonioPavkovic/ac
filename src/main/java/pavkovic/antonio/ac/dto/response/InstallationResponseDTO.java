@@ -3,17 +3,32 @@ package pavkovic.antonio.ac.dto.response;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
-public class ACInstallationResponseDTO {
+public class InstallationResponseDTO {
     private Long id;
-    private LocalDate installationDate;
+    private LocalDateTime installationDateTime;
     private String address;
     private String room;
     private String model;
     private CustomerResponseDTO customerResponseDTO;
     private WarrantyResponseDTO warrantyResponseDTO;
     private MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO;
+
+    public InstallationResponseDTO() {
+    }
+
+    public InstallationResponseDTO(Long id, LocalDateTime installationDateTime, String address, String room, String model, CustomerResponseDTO customerResponseDTO, WarrantyResponseDTO warrantyResponseDTO, MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO) {
+        this.id = id;
+        this.installationDateTime = installationDateTime;
+        this.address = address;
+        this.room = room;
+        this.model = model;
+        this.customerResponseDTO = customerResponseDTO;
+        this.warrantyResponseDTO = warrantyResponseDTO;
+        this.materialUsedInInstallationDTO = materialUsedInInstallationDTO;
+    }
 
     public Long getId() {
         return id;
@@ -23,12 +38,12 @@ public class ACInstallationResponseDTO {
         this.id = id;
     }
 
-    public LocalDate getInstallationDate() {
-        return installationDate;
+    public LocalDateTime getInstallationDateTime() {
+        return installationDateTime;
     }
 
-    public void setInstallationDate(LocalDate installationDate) {
-        this.installationDate = installationDate;
+    public void setInstallationDateTime(LocalDateTime installationDateTime) {
+        this.installationDateTime = installationDateTime;
     }
 
     public String getAddress() {
@@ -76,20 +91,6 @@ public class ACInstallationResponseDTO {
     }
 
     public void setMaterialUsedInInstallationDTO(MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO) {
-        this.materialUsedInInstallationDTO = materialUsedInInstallationDTO;
-    }
-
-    public ACInstallationResponseDTO() {
-    }
-
-    public ACInstallationResponseDTO(Long id, LocalDate installationDate, String address, String room, String model, CustomerResponseDTO customerResponseDTO, WarrantyResponseDTO warrantyResponseDTO, MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO) {
-        this.id = id;
-        this.installationDate = installationDate;
-        this.address = address;
-        this.room = room;
-        this.model = model;
-        this.customerResponseDTO = customerResponseDTO;
-        this.warrantyResponseDTO = warrantyResponseDTO;
         this.materialUsedInInstallationDTO = materialUsedInInstallationDTO;
     }
 }

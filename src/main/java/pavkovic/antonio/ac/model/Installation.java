@@ -1,29 +1,29 @@
 package pavkovic.antonio.ac.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ac_installation")
-public class ACInstallation {
+@Table(name = "installation")
+public class Installation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "installation_date")
-    private LocalDate installationDate;
+    @Column(name = "installation_date_time")
+    private LocalDateTime installationDateTime;
 
     @Column(name = "address")
     private String address;

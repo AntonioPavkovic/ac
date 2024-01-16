@@ -4,11 +4,12 @@ import lombok.Getter;
 import pavkovic.antonio.ac.dto.response.CustomerResponseDTO;
 import pavkovic.antonio.ac.dto.response.MaterialUsedInInstallationResponseDTO;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 @Getter
-public class ACInstallationRequestDTO {
-    private LocalDate installationDate;
+public class InstallationRequestDTO {
+    private LocalDateTime installationDateTime;
     private String address;
     private String room;
     private String model;

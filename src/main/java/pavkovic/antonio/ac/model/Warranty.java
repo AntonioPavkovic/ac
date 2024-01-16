@@ -1,13 +1,11 @@
 package pavkovic.antonio.ac.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,13 +20,13 @@ public class Warranty{
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "warranty_start_date")
-    private LocalDate warrantyStartDate;
+    @Column(name = "warranty_start_date_time")
+    private LocalDateTime warrantyStartDateTime;
 
-    @Column(name = "warranty_end_date")
-    private LocalDate warrantyEndDate;
+    @Column(name = "warranty_end_date_time")
+    private LocalDateTime warrantyEndDateTime;
 
     @OneToOne
     @JoinColumn(name = "installation_id", referencedColumnName = "id")
-    private ACInstallation installation;
+    private Installation installation;
 }

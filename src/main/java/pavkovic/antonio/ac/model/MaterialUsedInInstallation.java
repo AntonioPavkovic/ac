@@ -43,5 +43,5 @@ public class MaterialUsedInInstallation {
 
     @OneToOne
     @JoinColumn(name = "installation_id")
-    private ACInstallation installation;
+    private Installation installation;
 }

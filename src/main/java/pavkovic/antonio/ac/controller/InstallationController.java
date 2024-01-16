@@ -1,50 +1,48 @@
 package pavkovic.antonio.ac.controller;
 
-import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pavkovic.antonio.ac.dto.request.ACInstallationRequestDTO;
-import pavkovic.antonio.ac.dto.response.ACInstallationResponseDTO;
+import pavkovic.antonio.ac.dto.request.InstallationRequestDTO;
+import pavkovic.antonio.ac.dto.response.InstallationResponseDTO;
 import pavkovic.antonio.ac.exception.ResponseStatusException;
-import pavkovic.antonio.ac.service.ACInstallationService;
+import pavkovic.antonio.ac.service.InstallationService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/installations")
-public class ACInstallationController {
+public class InstallationController {
 
-    private final ACInstallationService acInstallationService;
+    private final InstallationService acInstallationService;
 
     @Autowired
-    public ACInstallationController(ACInstallationService acInstallationService) {
+    public InstallationController(InstallationService acInstallationService) {
         this.acInstallationService = acInstallationService;
     }
 
     @GetMapping()
-    public ResponseEntity<List<ACInstallationResponseDTO>> getAllACInstallations(
+    public ResponseEntity<List<InstallationResponseDTO>> getAllACInstallations(
             @RequestParam(defaultValue = "0") Integer pageNum,
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy
     ) {
 
-        List<ACInstallationResponseDTO> acInstallationResponseDTOs = acInstallationService.getAllACInstallations(pageNum, pageSize, sortBy);
+        List<InstallationResponseDTO> acInstallationResponseDTOs = acInstallationService.getAllACInstallations(pageNum, pageSize, sortBy);
         return new ResponseEntity<>(acInstallationResponseDTOs, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ACInstallationResponseDTO> getACInstallationById(@PathVariable("id") Long id) {
-        ACInstallationResponseDTO responseDTO = acInstallationService.getACInstallationById(id);
+    public ResponseEntity<InstallationResponseDTO> getACInstallationById(@PathVariable("id") Long id) {
+        InstallationResponseDTO responseDTO = acInstallationService.getACInstallationById(id);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
     @PostMapping()
-    public ResponseEntity<ACInstallationResponseDTO> createACInstallation(@RequestBody ACInstallationRequestDTO requestDTO) {
+    public ResponseEntity<InstallationResponseDTO> createACInstallation(@RequestBody InstallationRequestDTO requestDTO) {
         try {
-            ACInstallationResponseDTO responseDTO = acInstallationService.createACInstallation(requestDTO);
+            InstallationResponseDTO responseDTO = acInstallationService.createACInstallation(requestDTO);
             return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to create an AC installation", e);

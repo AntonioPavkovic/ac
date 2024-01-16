@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,13 +23,13 @@ public class Payment {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "payment_date")
-    private LocalDate paymentDate;
+    @Column(name = "payment_date_time")
+    private LocalDateTime paymentDateTime;
 
     @Column(name = "amount")
     private BigDecimal amount;
 
-    @Column(name = "Currency")
+    @Column(name = "currency")
     private String currency;
 
     @Column(name = "payment_method")
@@ -39,5 +40,5 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "installation_id")
-    private ACInstallation installation;
+    private Installation installation;
 }

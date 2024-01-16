@@ -4,24 +4,24 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
-import pavkovic.antonio.ac.dto.request.ACInstallationRequestDTO;
-import pavkovic.antonio.ac.dto.response.ACInstallationResponseDTO;
-import pavkovic.antonio.ac.model.ACInstallation;
+import pavkovic.antonio.ac.dto.request.InstallationRequestDTO;
+import pavkovic.antonio.ac.dto.response.InstallationResponseDTO;
+import pavkovic.antonio.ac.model.Installation;
 
 @Mapper
 @Component
-public interface ACInstallationMapper {
+public interface InstallationMapper {
 
-    ACInstallationMapper MAPPER = Mappers.getMapper(ACInstallationMapper.class);
+    InstallationMapper MAPPER = Mappers.getMapper(InstallationMapper.class);
 
-    ACInstallation toEntity(ACInstallationRequestDTO requestDTO);
+    Installation toEntity(InstallationRequestDTO requestDTO);
 
-    @Mapping(source = "customer.lastName", target = "customerResponseDTO.firstName")
+    @Mapping(source = "customer.lastName", target = "customerResponseDTO.lastName")
     @Mapping(source = "customer.phoneNumber", target = "customerResponseDTO.phoneNumber")
     @Mapping(source = "customer.email", target = "customerResponseDTO.email")
 
-    @Mapping(source = "warranty.warrantyStartDate", target = "warrantyResponseDTO.warrantyStartDate")
-    @Mapping(source = "warranty.warrantyEndDate", target = "warrantyResponseDTO.warrantyEndDate")
+    @Mapping(source = "warranty.warrantyStartDateTime", target = "warrantyResponseDTO.warrantyStartDateTime")
+    @Mapping(source = "warranty.warrantyEndDateTime", target = "warrantyResponseDTO.warrantyEndDateTime")
 
     @Mapping(source = "materialUsedInInstallation.copperPipe1Diameter", target = "materialUsedInInstallationDTO.copperPipe1Diameter")
     @Mapping(source = "materialUsedInInstallation.copperPipe2Diameter", target = "materialUsedInInstallationDTO.copperPipe2Diameter")
@@ -30,6 +30,6 @@ public interface ACInstallationMapper {
     @Mapping(source = "materialUsedInInstallation.communicationCableLength", target = "materialUsedInInstallationDTO.communicationCableLength")
     @Mapping(source = "materialUsedInInstallation.powerSupplyCableLength", target = "materialUsedInInstallationDTO.powerSupplyCableLength")
     @Mapping(source = "materialUsedInInstallation.waterDrainHoseLength", target = "materialUsedInInstallationDTO.waterDrainHoseLength")
-    ACInstallationResponseDTO toResponseDTO(ACInstallation acInstallation);
+    InstallationResponseDTO toResponseDTO(Installation installation);
 
 }

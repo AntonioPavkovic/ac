@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+
 
 @Entity
 @Getter
@@ -31,14 +33,14 @@ public class PaymentPlan {
     @Column(name = "installment_amount")
     private int installmentAmount;
 
-    @Column(name = "due_date")
-    private LocalDate dueDate;
+    @Column(name = "due_date_time")
+    private LocalDateTime dueDateTime;
 
     @Column(name = "number_of_installments")
     private int numberOfInstallments;
 
     @ManyToOne
     @JoinColumn(name = "installation_id")
-    private ACInstallation installation;
+    private Installation installation;
 
 }

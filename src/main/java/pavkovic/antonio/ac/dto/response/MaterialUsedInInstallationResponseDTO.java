@@ -9,6 +9,19 @@ public class MaterialUsedInInstallationResponseDTO {
     private double powerSupplyCableLength;
     private double waterDrainHoseLength;
 
+    public MaterialUsedInInstallationResponseDTO() {
+    }
+
+    public MaterialUsedInInstallationResponseDTO(double copperPipe1Diameter, double copperPipe2Diameter, double copperPipe1Length, double copperPipe2Length, double communicationCableLength, double powerSupplyCableLength, double waterDrainHoseLength) {
+        this.copperPipe1Diameter = copperPipe1Diameter;
+        this.copperPipe2Diameter = copperPipe2Diameter;
+        this.copperPipe1Length = copperPipe1Length;
+        this.copperPipe2Length = copperPipe2Length;
+        this.communicationCableLength = communicationCableLength;
+        this.powerSupplyCableLength = powerSupplyCableLength;
+        this.waterDrainHoseLength = waterDrainHoseLength;
+    }
+
     public double getCopperPipe1Diameter() {
         return copperPipe1Diameter;
     }
@@ -62,19 +75,6 @@ public class MaterialUsedInInstallationResponseDTO {
     }
 
     public void setWaterDrainHoseLength(double waterDrainHoseLength) {
-        this.waterDrainHoseLength = waterDrainHoseLength;
-    }
-
-    public MaterialUsedInInstallationResponseDTO() {
-    }
-
-    public MaterialUsedInInstallationResponseDTO(double copperPipe1Diameter, double copperPipe2Diameter, double copperPipe1Length, double copperPipe2Length, double communicationCableLength, double powerSupplyCableLength, double waterDrainHoseLength) {
-        this.copperPipe1Diameter = copperPipe1Diameter;
-        this.copperPipe2Diameter = copperPipe2Diameter;
-        this.copperPipe1Length = copperPipe1Length;
-        this.copperPipe2Length = copperPipe2Length;
-        this.communicationCableLength = communicationCableLength;
-        this.powerSupplyCableLength = powerSupplyCableLength;
         this.waterDrainHoseLength = waterDrainHoseLength;
     }
 }
