@@ -1,8 +1,7 @@
 package pavkovic.antonio.ac.dto.response;
 
+public class CustomerDTO {
 
-
-public class CustomerResponseDTO {
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -40,13 +39,14 @@ public class CustomerResponseDTO {
         this.email = email;
     }
 
-    public CustomerResponseDTO() {
+    public CustomerDTO() {
     }
 
-    public CustomerResponseDTO(String firstName, String lastName, String phoneNumber, String email) {
+    public CustomerDTO(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
 }

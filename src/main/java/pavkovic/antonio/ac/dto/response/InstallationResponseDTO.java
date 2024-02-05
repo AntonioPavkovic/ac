@@ -1,8 +1,5 @@
 package pavkovic.antonio.ac.dto.response;
 
-
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -12,21 +9,21 @@ public class InstallationResponseDTO {
     private String address;
     private String room;
     private String model;
-    private CustomerResponseDTO customerResponseDTO;
-    private WarrantyResponseDTO warrantyResponseDTO;
-    private MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO;
+    private CustomerDTO customerDTO;
+    private WarrantyDTO warrantyDTO;
+    private MaterialUsedInInstallationDTO materialUsedInInstallationDTO;
 
     public InstallationResponseDTO() {
     }
 
-    public InstallationResponseDTO(Long id, LocalDateTime installationDateTime, String address, String room, String model, CustomerResponseDTO customerResponseDTO, WarrantyResponseDTO warrantyResponseDTO, MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO) {
+    public InstallationResponseDTO(Long id, LocalDateTime installationDateTime, String address, String room, String model, CustomerDTO customerDTO, WarrantyDTO warrantyDTO, MaterialUsedInInstallationDTO materialUsedInInstallationDTO) {
         this.id = id;
         this.installationDateTime = installationDateTime;
         this.address = address;
         this.room = room;
         this.model = model;
-        this.customerResponseDTO = customerResponseDTO;
-        this.warrantyResponseDTO = warrantyResponseDTO;
+        this.customerDTO = customerDTO;
+        this.warrantyDTO = warrantyDTO;
         this.materialUsedInInstallationDTO = materialUsedInInstallationDTO;
     }
 
@@ -70,27 +67,27 @@ public class InstallationResponseDTO {
         this.model = model;
     }
 
-    public CustomerResponseDTO getCustomerResponseDTO() {
-        return customerResponseDTO;
+    public CustomerDTO getcustomerDTO() {
+        return customerDTO;
     }
 
-    public void setCustomerResponseDTO(CustomerResponseDTO customerResponseDTO) {
-        this.customerResponseDTO = customerResponseDTO;
+    public void setCustomerDTO(CustomerDTO customerDTO) {
+        this.customerDTO = customerDTO;
     }
 
-    public WarrantyResponseDTO getWarrantyResponseDTO() {
-        return warrantyResponseDTO;
+    public WarrantyDTO getWarrantyDTO() {
+        return warrantyDTO;
     }
 
-    public void setWarrantyResponseDTO(WarrantyResponseDTO warrantyResponseDTO) {
-        this.warrantyResponseDTO = warrantyResponseDTO;
+    public void setWarrantyDTO(WarrantyDTO warrantyDTO) {
+        this.warrantyDTO = warrantyDTO;
     }
 
-    public MaterialUsedInInstallationResponseDTO getMaterialUsedInInstallationDTO() {
+    public MaterialUsedInInstallationDTO getMaterialUsedInInstallationDTO() {
         return materialUsedInInstallationDTO;
     }
 
-    public void setMaterialUsedInInstallationDTO(MaterialUsedInInstallationResponseDTO materialUsedInInstallationDTO) {
+    public void setMaterialUsedInInstallationDTO(MaterialUsedInInstallationDTO materialUsedInInstallationDTO) {
         this.materialUsedInInstallationDTO = materialUsedInInstallationDTO;
     }
 }

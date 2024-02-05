@@ -16,12 +16,12 @@ public interface InstallationMapper {
 
     Installation toEntity(InstallationRequestDTO requestDTO);
 
-    @Mapping(source = "customer.lastName", target = "customerResponseDTO.lastName")
-    @Mapping(source = "customer.phoneNumber", target = "customerResponseDTO.phoneNumber")
-    @Mapping(source = "customer.email", target = "customerResponseDTO.email")
+    @Mapping(source = "customer.lastName", target = "customerDTO.lastName")
+    @Mapping(source = "customer.phoneNumber", target = "customerDTO.phoneNumber")
+    @Mapping(source = "customer.email", target = "customerDTO.email")
 
-    @Mapping(source = "warranty.warrantyStartDateTime", target = "warrantyResponseDTO.warrantyStartDateTime")
-    @Mapping(source = "warranty.warrantyEndDateTime", target = "warrantyResponseDTO.warrantyEndDateTime")
+    @Mapping(source = "warranty.warrantyStartDateTime", target = "warrantyDTO.warrantyStartDateTime")
+    @Mapping(source = "warranty.warrantyEndDateTime", target = "warrantyDTO.warrantyEndDateTime")
 
     @Mapping(source = "materialUsedInInstallation.copperPipe1Diameter", target = "materialUsedInInstallationDTO.copperPipe1Diameter")
     @Mapping(source = "materialUsedInInstallation.copperPipe2Diameter", target = "materialUsedInInstallationDTO.copperPipe2Diameter")

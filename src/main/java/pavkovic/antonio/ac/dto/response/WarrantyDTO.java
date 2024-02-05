@@ -1,18 +1,16 @@
 package pavkovic.antonio.ac.dto.response;
 
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+public class WarrantyDTO {
 
-public class WarrantyResponseDTO {
     private LocalDateTime warrantyStartDateTime;
     private LocalDateTime warrantyEndDateTime;
 
-    public WarrantyResponseDTO() {
+    public WarrantyDTO() {
     }
 
-    public WarrantyResponseDTO(LocalDateTime warrantyStartDateTime, LocalDateTime warrantyEndDateTime) {
+    public WarrantyDTO(LocalDateTime warrantyStartDateTime, LocalDateTime warrantyEndDateTime) {
         this.warrantyStartDateTime = warrantyStartDateTime;
         this.warrantyEndDateTime = warrantyEndDateTime;
     }
@@ -32,4 +30,5 @@ public class WarrantyResponseDTO {
     public void setWarrantyEndDateTime(LocalDateTime warrantyEndDateTime) {
         this.warrantyEndDateTime = warrantyEndDateTime;
     }
+
 }

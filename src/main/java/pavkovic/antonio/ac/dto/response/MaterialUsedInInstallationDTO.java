@@ -1,6 +1,7 @@
 package pavkovic.antonio.ac.dto.response;
 
-public class MaterialUsedInInstallationResponseDTO {
+public class MaterialUsedInInstallationDTO {
+
     private double copperPipe1Diameter;
     private double copperPipe2Diameter;
     private double copperPipe1Length;
@@ -9,10 +10,10 @@ public class MaterialUsedInInstallationResponseDTO {
     private double powerSupplyCableLength;
     private double waterDrainHoseLength;
 
-    public MaterialUsedInInstallationResponseDTO() {
+    public MaterialUsedInInstallationDTO() {
     }
 
-    public MaterialUsedInInstallationResponseDTO(double copperPipe1Diameter, double copperPipe2Diameter, double copperPipe1Length, double copperPipe2Length, double communicationCableLength, double powerSupplyCableLength, double waterDrainHoseLength) {
+    public MaterialUsedInInstallationDTO(double copperPipe1Diameter, double copperPipe2Diameter, double copperPipe1Length, double copperPipe2Length, double communicationCableLength, double powerSupplyCableLength, double waterDrainHoseLength) {
         this.copperPipe1Diameter = copperPipe1Diameter;
         this.copperPipe2Diameter = copperPipe2Diameter;
         this.copperPipe1Length = copperPipe1Length;
@@ -77,4 +78,5 @@ public class MaterialUsedInInstallationResponseDTO {
     public void setWaterDrainHoseLength(double waterDrainHoseLength) {
         this.waterDrainHoseLength = waterDrainHoseLength;
     }
+
 }
