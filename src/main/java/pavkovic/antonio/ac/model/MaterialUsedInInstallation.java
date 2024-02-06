@@ -20,28 +20,17 @@ public class MaterialUsedInInstallation {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "copper_pipe1_diameter")
-    private double copperPipe1Diameter;
+    @Column(name = "quantity")
+    private int quantity;
 
-    @Column(name = "copper_pipe2_diameter")
-    private double copperPipe2Diameter;
+    @Column(name = "unit_of_measure")
+    private String unitOfMeasure;
 
-    @Column(name = "copper_pipe1_length")
-    private double copperPipe1Length;
+    @ManyToOne
+    @JoinColumn(name = "material_id")
+    private Material material;
 
-    @Column(name = "copper_pipe2_length")
-    private double copperPipe2Length;
-
-    @Column(name = "communication_cable_length")
-    private double communicationCableLength;
-
-    @Column(name = "power_supply_cable_length")
-    private double powerSupplyCableLength;
-
-    @Column(name = "water_drain_hose_length")
-    private double waterDrainHoseLength;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "installation_id")
     private Installation installation;
 }

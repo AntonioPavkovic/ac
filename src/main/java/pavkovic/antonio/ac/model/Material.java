@@ -6,25 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "uninstallation")
-public class Uninstallation {
+@Table(name = "material")
+public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "uninstallation_date_time")
-    private LocalDateTime uninstallationDateTime;
+    @Column(name = "name", unique = true)
+    private String name;
 
-    @OneToOne
-    @JoinColumn(name = "installation_id")
-    private Installation installation;
+    @Column(name = "price")
+    private double price;
+
 }

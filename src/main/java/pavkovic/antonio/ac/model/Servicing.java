@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Servicing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
 
     @Column(name = "service_date_time")

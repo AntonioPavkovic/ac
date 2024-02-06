@@ -17,7 +17,7 @@ public class Warranty{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
 
     @Column(name = "warranty_start_date_time")

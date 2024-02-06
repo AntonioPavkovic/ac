@@ -15,19 +15,21 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "payment")
+@Table(name = "payment", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"payment_date_time", "amount", "currency"})
+})
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
 
     @Column(name = "payment_date_time")
     private LocalDateTime paymentDateTime;
 
     @Column(name = "amount")
-    private BigDecimal amount;
+    private double amount;
 
     @Column(name = "currency")
     private String currency;

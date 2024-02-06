@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 
 import java.time.LocalDateTime;
 
@@ -16,22 +15,24 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "payment_plan")
+@Table(name = "payment_plan", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"total_amount", "due_date_time"})
+})
 public class PaymentPlan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private Long id;
 
     @Column(name = "total_amount")
-    private BigDecimal totalAmount;
+    private double totalAmount;
 
     @Column(name = "remaining_amount")
-    private BigDecimal remainingAmount;
+    private double remainingAmount;
 
     @Column(name = "installment_amount")
-    private int installmentAmount;
+    private double installmentAmount;
 
     @Column(name = "due_date_time")
     private LocalDateTime dueDateTime;
