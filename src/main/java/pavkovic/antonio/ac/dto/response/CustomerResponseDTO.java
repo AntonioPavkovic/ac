@@ -1,6 +1,6 @@
 package pavkovic.antonio.ac.dto.response;
 
-public class CustomerDTO {
+public class CustomerResponseDTO {
 
     private String firstName;
     private String lastName;
@@ -39,10 +39,10 @@ public class CustomerDTO {
         this.email = email;
     }
 
-    public CustomerDTO() {
+    public CustomerResponseDTO() {
     }
 
-    public CustomerDTO(String firstName, String lastName, String phoneNumber, String email) {
+    public CustomerResponseDTO(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
