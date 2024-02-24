@@ -19,10 +19,14 @@ public class Material {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "price")
-    private double price;
+    @Column(name = "quantity")
+    private String quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "installation_id")
+    private Installation installation;
 
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -41,6 +42,6 @@ public class Installation {
     @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Warranty warranty;
 
-    @OneToOne(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private MaterialUsedInInstallation materialUsedInInstallation;
+    @OneToMany(mappedBy = "installation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Material> materials;
 }
