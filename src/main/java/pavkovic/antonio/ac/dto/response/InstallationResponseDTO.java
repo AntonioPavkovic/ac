@@ -1,6 +1,5 @@
 package pavkovic.antonio.ac.dto.response;
 
-import pavkovic.antonio.ac.model.Material;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,17 +1,13 @@
 package pavkovic.antonio.ac.mapper;
 
-import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 import pavkovic.antonio.ac.dto.request.InstallationRequestDTO;
 import pavkovic.antonio.ac.dto.response.InstallationResponseDTO;
-import pavkovic.antonio.ac.dto.response.MaterialResponseDTO;
 import pavkovic.antonio.ac.model.Installation;
-import pavkovic.antonio.ac.model.Material;
 
-import java.util.List;
 
 @Mapper
 @Component
